@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_light_background"
+    tools:context=".contacts.view.ContactsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="@dimen/_10sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Han Pham"
+                android:textAlignment="center"
+                android:textColor="@color/md_theme_light_onSurfaceVariant"
+                android:textSize="@dimen/_18ssp" />
+
+
+            <ImageView
+                android:id="@+id/qr_code"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_40sdp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="@dimen/_5sdp"
+                android:fontFamily="@font/montserrat"
+                android:text="Quét mã để thêm bạn Chat Them\n với tôi"
+                android:textAlignment="center"
+                android:textColor="@color/md_theme_light_onSurfaceVariant"
+                android:textSize="@dimen/_10ssp"
+                tools:ignore="RtlCompat" />
+
+        </androidx.cardview.widget.CardView>
+
+        <SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/background_chat_input"
+            android:backgroundTint="@color/md_theme_dark_onErrorContainer"
+            android:iconifiedByDefault="false"
+            android:queryHint="Nhập số điện thoại"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@id/btn_scan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_view">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_10sdp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/round_qr_code_scanner_24"
+                    android:backgroundTint="@color/md_theme_light_onSurfaceVariant"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/circular" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="start"
+                    android:text="Quét mã QR để kết bạn"
+                    android:textColor="@color/md_theme_light_onSurfaceVariant"
+                    android:textSize="@dimen/_13sdp" />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_scan">
+
+            <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/tools"
+                android:id="@+id/cardview_list_friend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:animateLayoutChanges="true"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_7sdp"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRAdius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_list_contact"
+                        app:tint="@color/md_theme_light_errorContainer" />
+
+
+                    <TextView
+                        android:id="@+id/text_list_contact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Danh sách bạn bè"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_request"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:animateLayoutChanges="true"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_7sdp"
+                app:cardUseCompatPadding="true"
+                tools:cardCornerRAdius="5dp">
+
+                <LinearLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/round_compare_arrows_24"
+                        app:tint="@color/md_theme_light_errorContainer" />
+
+
+                    <TextView
+                        android:id="@+id/text_request"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Lời mời kết bạn"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
